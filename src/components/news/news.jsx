@@ -5,13 +5,21 @@ import NewsItem from "./newItem";
 import { UseNew } from "../../hooks/useNews";
 
 const News = () => {
-  const { category, handleSelect } = UseNew();
+  const { ...news } = UseNew();
 
   return (
     <NewsContainer>
-      <Categories category={category} handleSelect={handleSelect} />
+      <Categories category={news.category} handleSelect={news.handleSelect} />
       <NewsListBlock>
-        <NewsItem />
+        {news.loading ? (
+          <div>Loading...</div>
+        ) : news.articles.length > 0 ? (
+          news.articles.map((item) => (
+            <NewsItem key={item.url} article={item} />
+          ))
+        ) : (
+          <div>뉴스가 없습니다.</div>
+        )}
       </NewsListBlock>
     </NewsContainer>
   );

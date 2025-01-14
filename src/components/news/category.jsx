@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { CategoriesBlock, Category } from "./style";
+import { categories } from "../../constants/category";
 
 const Categories = ({ handleSelect, category }) => {
   return (
     <CategoriesBlock>
-      {category.map((item) => (
+      {categories.map((item) => (
         <Category
           key={item.name}
           active={category === item.name}
