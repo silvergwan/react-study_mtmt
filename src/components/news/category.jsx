@@ -19,4 +19,4 @@ const Categories = ({ handleSelect, category }) => {
   );
 };
 
-export default Category;
+export default Categories;
