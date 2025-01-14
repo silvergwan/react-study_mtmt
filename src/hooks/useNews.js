@@ -12,7 +12,7 @@ export const useNews = () => {
     setCategory(category);
   }, []);
 
-  const newData = async () => {
+  const newsData = async () => {
     setLoading(true);
     try {
       await axios

@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from "react";
 import { CategoriesBlock, NewsContainer, NewsListBlock } from "./style";
-import { Categories } from "../../constants/category";
+import Categories from "./category";
 import NewsItem from "./newItem";
-import { UseNew } from "../../hooks/useNews";
+import { useNews } from "../../hooks/useNews";
 
 const News = () => {
-  const { ...news } = UseNew();
+  const { ...news } = useNews();
 
   return (
     <NewsContainer>
