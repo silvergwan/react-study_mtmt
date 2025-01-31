@@ -3,6 +3,7 @@ import { CategoriesBlock, NewsContainer, NewsListBlock } from "./style";
 import Categories from "./category";
 import NewsItem from "./newItem";
 import { useNews } from "../../hooks/useNews";
+import SkeletonComponent from "../skeleton";
 
 const News = () => {
   const { ...news } = useNews();
@@ -12,7 +13,7 @@ const News = () => {
       <Categories category={news.category} handleSelect={news.handleSelect} />
       <NewsListBlock>
         {news.loading ? (
-          <div>Loading...</div>
+          <SkeletonComponent height={100} />
         ) : news.articles.length > 0 ? (
           news.articles.map((item) => (
             <NewsItem key={item.url} article={item} />

@@ -5,6 +5,8 @@ export const newsData = async (query, apiKey) => {
     const { data } = await axios.get(
       `https://newsapi.org/v2/top-headlines?country=us${query}&apiKey=${apiKey}`
     );
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     return data.articles;
   } catch (error) {
     throw new Error("failed to data");
